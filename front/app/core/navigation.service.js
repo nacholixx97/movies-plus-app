@@ -6,17 +6,38 @@ export default function navigationService($state, $location) {
     goToURL: (URL) => {
       $location.url(URL);
     },
+    goToHomePage: () => {
+      $state.go('main.home');
+    },
     goToMoviesListPage: () => {
-      $state.go(process.env.DEFAULT_PAGE_STATE);
+      $state.go('main.movies.list');
     },
     goToMovieCreationPage: () => {
-      $state.go('main.home.movies.create');
+      $state.go('main.movies.create');
     },
     goToMovieDetailPage: (id) => {
-      $state.go('main.home.movies.detail', { id });
+      $state.go('main.movies.detail', { id });
     },
     goToMovieUpdatePage: (id) => {
-      $state.go('main.home.movies.update', { id });
+      $state.go('main.movies.update', { id });
+    },
+    goToSeriesListPage: () => {
+      $state.go('main.series.list');
+    },
+    goToSeriesCreationPage: () => {
+      $state.go('main.series.create');
+    },
+    goToSerieDetailPage: (id) => {
+      $state.go('main.series.detail', { id });
+    },
+    goToSerieUpdatePage: (id) => {
+      $state.go('main.series.update', { id });
+    },
+    goToGendersListPage: () => {
+      $state.go('main.genders.list');
+    },
+    goToGendersCreationPage: () => {
+      $state.go('main.genders.create');
     }
   };
 

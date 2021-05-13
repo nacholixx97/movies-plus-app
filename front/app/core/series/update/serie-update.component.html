@@ -1,0 +1,55 @@
+<div ng-if="$ctrl.isInitialized">
+  <page-header title="$ctrl.serie.name"></page-header>
+  <div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+      <form name="$ctrl.serieUpdateForm">
+        <div class="field">
+          <label for="code" class="required">Código</label>
+          <input type="text" ng-model="$ctrl.serie.code" class="form-control value" id="code" required>
+        </div>
+        <div class="field">
+          <label for="name" class="required">Título</label>
+          <input type="text" class="form-control value" ng-model="$ctrl.serie.name" id="name" required>
+        </div>
+        <div class="field">
+          <label for="originalName" class="required">Título original</label>
+          <input type="text" ng-model="$ctrl.serie.originalName" class="form-control value" id="originalName" required>
+        </div>
+        <div class="field">
+          <label for="seasons" class="required">Temporadas</label>
+          <input type="number" ng-model="$ctrl.serie.seasons" class="form-control value" id="seasons" required>
+        </div>
+        <div class="field">
+          <label class="required">Portada</label>
+          <upload-file file="$ctrl.serie.file"></upload-file>
+        </div>
+        <div class="field">
+          <label for="year" class="required">Año</label>
+          <input type="number" ng-model="$ctrl.serie.year" class="form-control value" id="year" required>
+        </div>
+        <div class="field">
+          <label class="required">Géneros</label>
+          <div class="genders">
+            <ui-select multiple ng-model="$ctrl.serie.genders" theme="bootstrap" close-on-select="false">
+              <ui-select-match placeholder="'Click' para seleccionar">{{$item.name}}</ui-select-match>
+              <ui-select-choices repeat="gender in $ctrl.genders | filter: $select.search">
+                <div ng-bind-html="gender.name | highlight: $select.search"></div>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="description" class="required">Sinópsis</label>
+          <textarea ng-model="$ctrl.serie.description" rows="7" class="form-control value" id="description"
+            required></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <button type="button" class="btn btn-primary" ng-click="$ctrl.save();"
+        ng-disabled="!$ctrl.isValidForm() || $ctrl.savingInProcess;">Guardar</button>
+      <button type="button" class="btn btn-default" ng-click="$ctrl.goToseriesListPage();"
+        ng-disabled="$ctrl.savingInProcess">Cancelar</button>
+    </div>
+  </div>
+</div>

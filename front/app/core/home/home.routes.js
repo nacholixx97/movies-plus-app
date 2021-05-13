@@ -8,8 +8,39 @@ function getStates() {
       state: 'main.home',
       config: {
         url: '/',
-        template: '<home></home>',
-        redirectTo: process.env.DEFAULT_PAGE_STATE
+        templateUrl: 'app/core/home/homePage.component.html',
+        controller: ['$scope', 'navigationService', function($scope, navigationService){
+          $scope.goToMoviesListPage = () => {
+            navigationService.goToMoviesListPage();
+          };
+          $scope.goToSeriesListPage = () => {
+            navigationService.goToSeriesListPage();
+          };
+        }]
+      }
+    },
+    {
+      state: 'main.movies',
+      config: {
+        url: '/movies',
+        templateUrl: 'app/core/home/home.component.html',
+        redirectTo: 'main.movies.list'
+      }
+    },
+    {
+      state: 'main.series',
+      config: {
+        url: '/series',
+        templateUrl: 'app/core/home/home.component.html',
+        redirectTo: 'main.series.list'
+      }
+    },
+    {
+      state: 'main.genders',
+      config: {
+        url: '/genders',
+        templateUrl: 'app/core/home/home.component.html',
+        redirectTo: 'main.genders.list'
       }
     },
     {

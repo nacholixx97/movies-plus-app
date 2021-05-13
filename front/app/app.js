@@ -24,6 +24,7 @@ import 'ngstorage';
 import ngFileSaver from 'angular-file-saver';
 import 'ui-select';
 import 'ng-notify';
+// import alertifyjs from 'alertifyjs';
 
 // Modules
 import coreModule from './core/core.module';
@@ -52,7 +53,8 @@ angular
     'ui.select',
     'ngNotify',
     layoutModule.name,
-    coreModule.name
+    coreModule.name,
+    // alertifyjs
   ])
   .constant('moment', moment)
   .config([

@@ -5,29 +5,21 @@ export default function moviesRoutes(routerHelper) {
 function getStates() {
   return [
     {
-      state: 'main.home.movies',
-      config: {
-        abstract: true,
-        url: 'movies',
-        template: '<ui-view></ui-view>'
-      }
-    },
-    {
-      state: 'main.home.movies.list',
+      state: 'main.movies.list',
       config: {
         url: '/',
         template: '<movies></movies>'
       }
     },
     {
-      state: 'main.home.movies.create',
+      state: 'main.movies.create',
       config: {
         url: '/new',
         template: '<movie-creation></movie-creation>'
       }
     },
     {
-      state: 'main.home.movies.detail',
+      state: 'main.movies.detail',
       config: {
         url: '/{id:int}',
         template: '<movie-detail movie="$ctrl.movie"></movie-detail>',
@@ -45,7 +37,7 @@ function getStates() {
       }
     },
     {
-      state: 'main.home.movies.update',
+      state: 'main.movies.update',
       config: {
         url: '/{id:int}/update',
         template: '<movie-update movie="$ctrl.movie"></movie-update>',

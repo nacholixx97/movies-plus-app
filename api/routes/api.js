@@ -8,4 +8,6 @@ router.use('/files', require('./files'));
 
 router.use('/utils', require('./utils'));
 
+router.use('/users', require('./users'));
+
 module.exports = router;

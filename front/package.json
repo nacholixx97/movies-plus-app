@@ -11,6 +11,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "alertifyjs": "^1.13.1",
     "angular": "1.6.10",
     "angular-animate": "1.7.2",
     "angular-cookies": "1.6.10",

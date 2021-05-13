@@ -1,4 +1,4 @@
-function homeComponentCtrl() {
+function homeComponentCtrl(navigationService) {
   const $ctrl = this;
 
   $ctrl.$onInit = () => {};
@@ -6,6 +6,6 @@ function homeComponentCtrl() {
 
 export default {
   templateUrl: 'app/core/home/home.component.html',
-  controller: homeComponentCtrl,
+  controller: ['navigationService', homeComponentCtrl],
   bindings: {}
 };

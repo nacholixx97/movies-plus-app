@@ -3,6 +3,7 @@ function moviesComponentCtrl(moviesApiService, navigationService, commonService)
 
   $ctrl.$onInit = async () => {
     $ctrl.movies = await moviesApiService.list().catch(err => commonService.error(err.message));
+
     if ($ctrl.movies) {
       angular.forEach($ctrl.movies, (movie) => {
         movie.fileUrl = `${process.env.API_URL}/files/${movie.file_uuid}`;

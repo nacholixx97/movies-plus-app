@@ -1,0 +1,23 @@
+<div ng-if="$ctrl.isInitialized">
+  <page-header title="'Nuevo género'"></page-header>
+  <div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-12">
+      <form name="$ctrl.genderCreationForm">
+        <div class="field">
+          <label for="code" class="required">Código</label>
+          <input type="text" ng-model="$ctrl.gender.code" class="form-control value" id="code" required>
+        </div>
+        <div class="field">
+          <label for="name" class="required">Nombre</label>
+          <input type="text" class="form-control value" ng-model="$ctrl.gender.name" id="name" required>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <button type="button" class="btn btn-primary" ng-click="$ctrl.save();"
+        ng-disabled="!$ctrl.isValidForm() || $ctrl.savingInProcess;">Guardar</button>
+      <button type="button" class="btn btn-default" ng-click="$ctrl.goToGendersListPage();"
+        ng-disabled="$ctrl.savingInProcess">Cancelar</button>
+    </div>
+  </div>
+</div>

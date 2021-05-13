@@ -10,7 +10,7 @@ serieModel.getAll = async (filterModel) => {
     select 
       s.id, 
       s.name,
-      s.sesions,
+      s.seasons,
       f.uuid as file_uuid, 
       array(
         select g.name 
@@ -64,19 +64,19 @@ serieModel.create = async (serie) => {
     gendersIds,
     description
   } = serie;
-
+  
   const fileUuid = uuid();
   const extension = file.name.split('.').pop();
   const fileName = `${fileUuid}.${extension}`;
-
+  
   await fs.writeFile(
     `${process.env.FILE_STORAGE_PATH}/${fileName}`,
     file.base64Content,
     'base64',
     err => Promise.reject(err)
-  );
-
-  const [fileId] = await db
+    );
+    
+    const [fileId] = await db
     .insert({
       name: `${fileName}`,
       uuid: fileUuid,
@@ -191,8 +191,8 @@ serieModel.update = async (serie) => {
       name,
       original_name: originalName,
       year,
-      description,
       seasons,
+      description,
       total_duration: totalDuration,
       file_id: fileId
     });

@@ -17,6 +17,7 @@ seriesController.get = catchAsync(async (req, res, next) => {
     name: data.name,
     originalName: data.original_name,
     year: data.year,
+    seasons: data.seasons,
     description: data.description,
     totalDuration: data.total_duration,
     file: data.file,

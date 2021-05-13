@@ -1,28 +1,41 @@
-function headerComponentCtrl(navigationService) {
+function headerComponentCtrl($location, navigationService) {
   const $ctrl = this;
 
   $ctrl.$onInit = () => {
     $ctrl.pages = [
       {
         name: 'Películas',
-        code: 'peliculas',
+        code: 'movies',
         onClick: () => {
-          $ctrl.activePageCode = 'peliculas';
           navigationService.goToMoviesListPage();
+        }
+      },
+      {
+        name: 'Series',
+        code: 'series',
+        onClick: () => {
+          navigationService.goToSeriesListPage();          
+        }
+      },
+      {
+        name: 'Generos',
+        code: 'genders',
+        onClick: () => {
+          navigationService.goToGendersListPage();          
         }
       }
     ];
 
-    $ctrl.activePageCode = $ctrl.pages[0].code;
+    $ctrl.activePageCode = $location.url().split('/')[1];
   };
 
-  $ctrl.goToMoviesListPage = () => {
-    navigationService.goToMoviesListPage();
+  $ctrl.goToHomePage = () => {
+    navigationService.goToHomePage();
   };
 }
 
 export default {
   templateUrl: 'app/layout/header/header.component.html',
-  controller: ['navigationService', headerComponentCtrl],
+  controller: ['$location' ,'navigationService', headerComponentCtrl],
   bindings: {}
 };
