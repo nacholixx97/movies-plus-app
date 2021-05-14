@@ -25,24 +25,14 @@ function headerComponentCtrl($location, navigationService, $cookies, usersApiSer
       }
     )
     
-    const user = await usersApiService.getById($cookies.get('token'))
-    if (user[0].kind==1) {
-      $ctrl.pages.push(
-        {
-          name: 'Generos',
-          code: 'genders',
-          onClick: () => {
-            navigationService.goToGendersListPage();          
-          }
-        },
-        {
-          name: 'Usuario',
-          code: 'users',
-          onClick: () => {
-            navigationService.goToUsersListPage();          
-          }
-        }
-      )
+    $ctrl.kind = $cookies.get('kind');
+
+    $ctrl.goToGendersListPage = () => {
+      navigationService.goToGendersListPage();          
+    }
+
+    $ctrl.goToUsersListPage = () => {
+      navigationService.goToUsersListPage();          
     }
 
     $ctrl.activePageCode = $location.url().split('/')[1];
@@ -53,7 +43,8 @@ function headerComponentCtrl($location, navigationService, $cookies, usersApiSer
   };
   
   $ctrl.logout = () => {
-    $cookies.remove('token')
+    $cookies.remove('token');
+    $cookies.remove('kind');
     navigationService.goToLoginPage();
   }
 }

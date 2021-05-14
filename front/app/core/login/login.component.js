@@ -23,7 +23,8 @@ function loginComponentCtrl($cookies, commonService, usersApiService, navigation
         if (res[0].password != credenciales.password) {
           commonService.error('La contraseña ingresada no es válida.')
         }else{
-          $cookies.put('token', res[0].id)
+          $cookies.put('token', res[0].id);
+          $cookies.put('kind', res[0].kind);
           navigationService.goToHomePage();
         }
       }

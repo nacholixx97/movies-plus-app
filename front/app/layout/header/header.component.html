@@ -19,7 +19,15 @@
           class="clickable">
           <a ng-click="page.onClick()">{{page.name}}</a>
         </li>
+        <li class="dropdown" ng-if="$ctrl.kind==1">
+          <a data-toggle="dropdown">Opciones <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a ng-click="$ctrl.goToGendersListPage()">Género</a></li>
+            <li><a ng-click="$ctrl.goToUsersListPage()">Usuarios</a></li>
+          </ul>
+        </li>
       </ul>
+
 
       <!-- Logout -->
       <div class="navbar-right" style="padding-top: 8px">
