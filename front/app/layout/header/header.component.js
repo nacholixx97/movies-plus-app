@@ -1,4 +1,4 @@
-function headerComponentCtrl($location, navigationService) {
+function headerComponentCtrl($location, navigationService, $cookies) {
   const $ctrl = this;
 
   $ctrl.$onInit = () => {
@@ -27,15 +27,24 @@ function headerComponentCtrl($location, navigationService) {
     ];
 
     $ctrl.activePageCode = $location.url().split('/')[1];
-  };
 
+    if (!$cookies.get('token')) {
+      navigationService.goToLoginPage();
+    }
+  };
+  
   $ctrl.goToHomePage = () => {
     navigationService.goToHomePage();
   };
+  
+  $ctrl.logout = () => {
+    $cookies.remove('token')
+    navigationService.goToLoginPage();
+  }
 }
 
 export default {
   templateUrl: 'app/layout/header/header.component.html',
-  controller: ['$location' ,'navigationService', headerComponentCtrl],
+  controller: ['$location' ,'navigationService', '$cookies', headerComponentCtrl],
   bindings: {}
 };

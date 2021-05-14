@@ -6,6 +6,9 @@ export default function navigationService($state, $location) {
     goToURL: (URL) => {
       $location.url(URL);
     },
+    goToLoginPage: () => {
+      $state.go('main.login');
+    },
     goToHomePage: () => {
       $state.go('main.home');
     },

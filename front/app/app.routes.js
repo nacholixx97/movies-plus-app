@@ -3,6 +3,6 @@ export default function appRoutes($stateProvider) {
     .state('main', {
       url: '',
       template: '<ui-view></ui-view>',
-      redirectTo: process.env.DEFAULT_PAGE_STATE
+      redirectTo: process.env.LOGIN_PAGE
     });
 }

@@ -20,6 +20,14 @@ function getStates() {
       }
     },
     {
+      state: 'main.login',
+      config: {
+        url: '/login',
+        template: '<login></login>',
+        // redirectTo: 'main.movies.list'
+      }
+    },
+    {
       state: 'main.movies',
       config: {
         url: '/movies',
