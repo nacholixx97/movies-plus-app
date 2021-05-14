@@ -5,6 +5,7 @@ import seriesModule from './series/series.module';
 import gendersModule from './genders/genders.module';
 import loginModule from './login/login.module';
 import confirmModule from './confirm/confirm.module';
+import usersModule from './users/users.module';
 
 // Providers
 import routerHelperProvider from './router-helper.provider';
@@ -22,7 +23,8 @@ const coreModule = angular.module('coreModule', [
   seriesModule.name,
   gendersModule.name,
   loginModule.name,
-  confirmModule.name
+  confirmModule.name,
+  usersModule.name
 ]);
 
 export default coreModule

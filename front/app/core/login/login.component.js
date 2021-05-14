@@ -1,8 +1,12 @@
-function loginComponentCtrl($cookies, commonService, usersApiService, navigationService, ngDialog, mailApiService) {
+function loginComponentCtrl($cookies, commonService, usersApiService, navigationService, ngDialog) {
   const $ctrl = this;
 
   $ctrl.$onInit = () => {
     $ctrl.credenciales = {}
+
+    if ($cookies.get('token')) {
+      navigationService.goToHomePage();
+    }
   };
 
   $ctrl.login = async () => {
@@ -20,7 +24,7 @@ function loginComponentCtrl($cookies, commonService, usersApiService, navigation
           commonService.error('La contraseña ingresada no es válida.')
         }else{
           $cookies.put('token', res[0].id)
-          navigationService.goToHomePage()
+          navigationService.goToHomePage();
         }
       }
 

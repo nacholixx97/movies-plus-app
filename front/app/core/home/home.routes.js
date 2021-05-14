@@ -60,6 +60,14 @@ function getStates() {
       }
     },
     {
+      state: 'main.users',
+      config: {
+        url: '/users',
+        templateUrl: 'app/core/home/home.component.html',
+        redirectTo: 'main.users.list'
+      }
+    },
+    {
       state: 'main.home.404',
       config: {
         url: '404',

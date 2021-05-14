@@ -41,6 +41,12 @@ export default function navigationService($state, $location) {
     },
     goToGendersCreationPage: () => {
       $state.go('main.genders.create');
+    },
+    goToUsersListPage: () => {
+      $state.go('main.users.list');
+    },
+    goToUsersCreationPage: () => {
+      $state.go('main.users.create');
     }
   };
 
