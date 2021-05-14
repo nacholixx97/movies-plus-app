@@ -11,7 +11,7 @@ usersController.getAll = catchAsync(async (req, res, next) => {
 
 usersController.getByUsername = catchAsync(async (req, res, next) => {
   const users = await db('users')
-    .where({username: req.query.user})
+    .where({username: req.query.user, status: 1})
   sendOK(res, users);
 });
 
@@ -22,16 +22,15 @@ usersController.create = catchAsync(async (req, res, next) => {
   sendOK(res, users);
 });
 
-// usersController.create = catchAsync(async (req, res, next) => {
-//   const response = await db('gender')
-//     .insert(req.body)
-//   sendOK(res, response);
-// });
-
-// usersController.remove = catchAsync(async (req, res, next) => {
-//   const result = await db('gender').where({id: req.params.id}).del();
-//   console.log(result);
-//   sendOK(res, {result});
-// });
+usersController.confirm = catchAsync(async (req, res, next) => {
+  const users = await db('users')
+    .update({status: 1})
+    .where({username: req.params.user})
+  if (users) {
+    sendOK(res, {status: '1'});
+  }else{
+    sendOK(res, {status: '0'});
+  }
+});
 
 module.exports = usersController;

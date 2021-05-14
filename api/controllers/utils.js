@@ -19,7 +19,6 @@ utilsController.create = catchAsync(async (req, res, next) => {
 
 utilsController.remove = catchAsync(async (req, res, next) => {
   const result = await db('gender').where({id: req.params.id}).del();
-  console.log(result);
   sendOK(res, {result});
 });
 

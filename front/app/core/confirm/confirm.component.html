@@ -1,0 +1,6 @@
+<div ng-if="$ctrl.isInitialized" class="container-fluid">
+  <div class="bg-primary" style="text-align:center;margin-top:5rem;padding: 3rem; border-radius: 2rem;">
+    <h3 ng-if="$ctrl.res.status==1">Su cuenta se ha confirmado correctamente.</h3>
+    <h3 ng-if="$ctrl.res.status==0">Ha ocurrido un problema.</h3>
+  </div>
+</div>

@@ -28,6 +28,14 @@ function getStates() {
       }
     },
     {
+      state: 'main.confirm',
+      config: {
+        url: '/confirm/:user',
+        template: '<confirm></confirm>',
+        // redirectTo: 'main.movies.list'
+      }
+    },
+    {
       state: 'main.movies',
       config: {
         url: '/movies',

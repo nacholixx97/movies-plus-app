@@ -10,4 +10,6 @@ router.use('/utils', require('./utils'));
 
 router.use('/users', require('./users'));
 
+router.use('/mail', require('./mail'));
+
 module.exports = router;
