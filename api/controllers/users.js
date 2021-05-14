@@ -15,6 +15,13 @@ usersController.getByUsername = catchAsync(async (req, res, next) => {
   sendOK(res, users);
 });
 
+usersController.create = catchAsync(async (req, res, next) => {
+  const users = await db('users')
+    .insert(req.body)
+    .returning('id')
+  sendOK(res, users);
+});
+
 // usersController.create = catchAsync(async (req, res, next) => {
 //   const response = await db('gender')
 //     .insert(req.body)
